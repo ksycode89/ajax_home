@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+</head>
+<h2 align="center">회원정보입력</h2>
+<style>
+  form{
+    width: 50%;
+  }
+    table{
+      
+        width: 100%;
+    }
+    #save{
+        margin-left: 200px;
+        width: 100px;
+        height: 50px;
+       
+    }
+   #cancel{
+   
+    width: 100px;
+        height: 50px;
+   }
+   table{
+    text-align: left;
+   }
+
+
+</style>
+<body>
+    <form action="">
+        <fieldset>
+            <table border="1">
+                <tr>
+                   <th> <label for="name">이름 </label></th>
+                   <th> <input type="text" name="id" id="name" value="못지나간다" readonly></th>
+                </tr>
+                <tr>
+                    <th> <label for="id">아이디</label>   </th>
+                    <th> <input type="hidden" name="id" id="id" value=""><input id="tt" type="submit" value ="중복확인"  ></th>
+                 </tr>
+                 <tr>
+                    <th> <label for="pw">비밀번호</label> </label></th>
+                    <td style="font-size: 0.6em;"> <input type="password" name="pw" id="pw" value="">*비밀번호는 4~16자로 입력해주세요.</td>
+                 </tr>
+                 <tr>
+                    <th> <label for="repw">비밀번호</label> </th>
+                    <th> <input type="password" name="repw" id="repw" value=""></th>
+  
+                 </tr>
+                 <tr>
+                    <th> <label for="birth">생일/성별</label> </th>
+                    <th> <input type="date" name="birth" id="birth" value="">
+                        <label for="man">남</label>
+                        <input type="radio" name = "sex" id="man" value="남">
+                        <label for="woman">여</label>
+                        <input type="radio" name = "sex" id="woman" value="여">
+
+                    </th>
+  
+                 </tr>
+                 <tr>
+                    <th> <label for="email">이메일 </label></th>
+                    <th> <input type="text" name="email" id="email" value="">
+                        @<select name = email>
+                            <option value="" >선택</option>
+                            <option value="">daum.net</option>
+                            <option value="">naver.com</option>
+                            <option value="" selected="">google.com</option>
+
+
+                        </select>
+                        <input id="tt" type="submit" value ="중복확인"  >
+                    
+                    
+                    </th>
+                 </tr>
+                 <tr>
+                    <th> <label for="tel">휴대폰</label>   </th>
+                    <th> <input type="tel" name="tel" id="gel" value=""></th>
+                 </tr>
+                 
+                 <tr>
+                    <th> <label for="reco">추천인 </label></th>
+                    <th> <input type="text" name="reco" id="reco" value=""><input type="submit" value="추천인 검색"></th>
+                 </tr>
+
+
+                 <tr>
+                    <th>뉴스메일</th>
+                    <td>  
+                        <input type="radio" name = "news" id="news" value="yes">
+                    
+                        <label for="news">받습니다.</label>
+
+                        <input type="radio" name = "news" id="news" value="no">
+                    
+                        <label for="news">받지 않습니다.</label>
+                    </td>
+
+                 </tr>
+
+                 <tr>
+                    <th>sms안내</th>
+                    <td>  
+                        <input type="radio" name = "sms" id="sms" value="yes">
+                    
+                        <label for="sms">받습니다.</label>
+
+                        <input type="radio" name = "sms" id="sms" value="no">
+                    
+                        <label for="sms">받지 않습니다.</label>
+                    </td>
+
+                 </tr>
+
+                 <tr>
+                    <th>맵Push알림</th>
+                    <td>  
+                        <input type="radio" name = "push" id="push" value="yes">
+                    
+                        <label for="push">받습니다.</label>
+
+                        <input type="radio" name = "push" id="push" value="no">
+                    
+                        <label for="push">받지 않습니다.</label>
+                    </td>
+
+                 </tr>
+
+                 <hr>
+                 <th>자기소 개</th>
+                <td style="width: ;">
+                    <textarea name="intro" id="" cols="30" rows="10"></textarea>
+                </td>
+                
+                </hr>
+                 
+
+
+
+            </table>
+
+        </fieldset>
+
+<br>
+
+        <input type="submit" value="저장하기" id = "save"> <input type="submit" value="취소하기" id = "cancel">
+
+
+
+
+
+
+    </form>
+
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="condition_test.js"></script> -->
+<style>
+    /* div{
+        background-color: pink;
+        border: 1px solid black;
+        width: 50px;
+        height: 50px;
+        padding-top: 15px;
+     
+        animation-name: moving;
+		
+		animation-duration: 3s;
+		
+		animation-direction: normal;
+
+        @keyframes moving {
+		
+            from {
+			width: 50;
+			background: #faef7c;
+			opacity: 0.5;
+			transform: scale(0.5) rotate(15deg);
+		}
+
+		to {
+			width: 50;
+			background: #ff9400;
+			opacity: 1;
+			transform: scale(1) rotate(0deg);
+		}
+    }
+}   */
+div {
+		margin-top: 50px;
+		margin-left: 100px;
+		padding: 20px;
+		height: 60px;
+		
+		/* animation: moving 3s; */
+		
+		/* animation-duration: 3s;
+		
+		animation-direction: normal; */
+	}
+
+	@keyframes moving {
+		from {
+			width: 200px;
+			background: #faef7c;
+			opacity: 0.5;
+			transform: scale(0.5) rotate(15deg);
+		}
+
+		to {
+			width: 400px;
+			background: #ff9400;
+			opacity: 1;
+			transform: scale(1) rotate(0deg);
+		}
+	}
+        </style>
+    </head>
+    <body>
+       <input type="text"   placeholder='글넣어보기'  onkeydown="alert('글쓰때마다 알림')">
+        <input type="text" value="" placeholder='글넣어보기'  onchange="alert('변화가있으면 알림')">
+        <br>
+        <br>
+        돌리기<input type="button" value="click" onclick="
+
+            // document.querySelector('div').style.animation='moving 3s';
+   
+
+      
+            // document.querySelector('div').style.transform='rotate(365deg)'
+            // document.querySelector('div').style.transition='3s'
+           
+            // document.querySelector('body').style.transform='rotate(300deg)'
+            // document.querySelector('body').style.transition='2s'
+
+
+            // document.querySelector('div').style.transform='rotate(45deg)'
+            // document.querySelector('div').style.transition='3s';
+
+        
+        ">
+    
+        마음편히하기
+        <input type="button" value="click" onclick="
+             document.querySelector('div').style.transform='rotate(-5deg)'
+             document.querySelector('div').style.transition='3s';
+        
+            //  document.querySelector('body').style.transform='rotate(-5deg)'
+            //  document.querySelector('body').style.transition='2s'
+        ">
+        
+        <div>
+            ㅇㅅㅇ
+    
+        </div>
+    
+    </body>
+</html>

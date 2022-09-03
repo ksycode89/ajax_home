@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구조적선택자2</title>
+
+<style>
+p:nth-of-type(2){
+    color: cadetblue;
+}
+div>p:nth-of-type(3){
+    background-color: gainsboro;
+}
+
+p:nth-last-of-type(1){
+    color: rgb(101, 26, 172);
+    background-color: antiquewhite;
+}
+/* input[type*='te']{
+    background-color: darkkhaki;
+} */
+input[type='text'],input[type='email']{
+    background-color: deeppink;
+}
+input:not([type='email']){
+    color: aliceblue;
+}
+
+
+</style>
+
+
+
+</head>
+<body>
+    <ol>
+        <h3>에스프레소</h3>
+        <p>아메리카노</p>
+        <p>라떼는</p>
+        <h4>카푸치노</h4>
+        <p>모카뭐시기</p>
+        <li>빵또아</li>
+        
+
+
+
+
+    </ol>
+
+<div>
+        <h3>에스프레소</h3>
+        <p>아메리카노</p>
+        <p>라떼는</p>
+        <h4>카푸치노</h4>
+        <p>모카뭐시기</p>
+        <li>빵또아</li>
+
+    </div>
+    <p>p_test</p>
+
+    <input type="text" value="Text"><br>
+    <input type="email" value="email"><br>
+    <input type="password" value="password"><br>
+
+</body>
+</html>

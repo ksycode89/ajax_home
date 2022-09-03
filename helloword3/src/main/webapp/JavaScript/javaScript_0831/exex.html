@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .red  { color: #ff0000; }
+      .blue { color: #0000ff; }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Cities</h1>
+      <ul>
+        <li id="one" class="red">Seoul</li>
+        <li id="two" class="red">London</li>
+        <li id="three" class="red">Newyork</li>
+        <li id="four">Tokyo</li>
+      </ul>
+    </div>
+    <script>
+        let one = document.getElementById('one')
+        console.log(one.getAttribute('class'))
+        one.style.backgroundColor = "pink"
+        one.innerText=`<br>고구마`
+        one.innerHTML=`<br>고구마`
+
+        let uls = document.getElementsByTagName('ul')
+        console.log(uls[0].style.listStyleType= 'circle')
+
+        let newdeli = document.createElement('li');
+        newdeli.innerHTML='뉴델리'
+        uls[0].appendChild(newdeli)
+
+
+        document.getElementById('four').remove();
+
+        let list =document.getElementsByTagName('li')
+
+        document.getElementsByTagName('li')[3].style.color='green';
+
+    //   for(let i=0; i<list.length;i++){
+    //     list[i].onclick = function(){
+    //         window.alert(this.innerText)
+    //     }
+    // }
+
+    let reds = document.getElementsByClassName('red')
+    for(let i=0; i<reds.length;i++){
+        reds[i].onmouseover = function(){
+         this.style.fontWeight = 'bold'
+       
+         reds[i].onmouseout= function(){
+         this.style.fontWeight = '100'}
+        
+    }
+}
+    </script>
+  </body>
+</html>

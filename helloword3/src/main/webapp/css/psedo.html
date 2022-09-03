@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>psedo_selector</title>
+<style>
+   
+    a:visited{
+        color: rgb(189, 59, 120);
+    }
+
+    a:hover{
+        color: aqua;
+    }
+    /* 눌렀을때만 */
+    a:active{
+        background-color: antiquewhite;
+    }
+   input:checked+span{
+    background-color: black;
+   }
+
+</style>
+
+
+</head>
+<body>
+    <a href="https://www.daum.net">다음</a><br>
+    <input type="text" name="id" placeholder="focus me">
+    <br>
+    <input type="radio" name="gg" ><span>남</span><br>
+    <input type="checkbox" name="gg" ><span>여</span><br>
+    <input type="radio" name="gg" ><span>네?</span><br>
+
+
+
+</body>
+</html>

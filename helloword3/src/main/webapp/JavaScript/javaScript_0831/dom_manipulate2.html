@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2</title>
+<style>
+
+tr.focus{
+    background-color: aqua;
+}
+
+        * {
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 70%;
+            float: left;
+            border: 1px solid gray;
+        }
+
+        div#addInfo {
+            width: 30%;
+            float: right;
+            border: 1px solid gray;
+            height: 300px;
+
+        }
+
+
+</style>
+
+
+
+</head>
+<body>
+    <h3>회원등록화면</h3>
+    <label for="mid">회원아이디</label>
+     <input type="text" id="mid" name="mid"><br>
+
+     <label for="">회원이름</label>
+     <input type="text" id="mname" name="mname"><br>
+
+     <label for="mphone">회원전화번호</label>
+     <input type="text" id="mphone" name="mphone"><br><br>
+     <button>회원가입</button>
+     <button id="addMem">불러오기</button>
+     <button id="reload">초기화</button>
+     <button id="Fmember">회원찾기</button>
+     <button id="modi">변경</button>
+     <button id="seldel">선택삭제</button>
+     
+    <hr>
+   
+    <div id="show">
+        <table border="1" >
+            <thead>      
+                <tr>
+                    <td><input id="allC"  type="checkbox" value="true" ></td>
+            <td>회원아이디</td>
+                <td>회원이름</td>
+                <td>회원전화번호</td>
+                <td>delete</td>
+            </tr>
+
+            </thead>      
+            <tbody id="list"></tbody>
+        </table>
+
+
+
+
+
+
+    </div>
+
+    <div id="addInfo">
+        <ul>
+            <li>org: <span>국립중앙의료원</span></li>
+            <li>lat: <span>국립중앙의료원</span></li>
+            <li>lng: <span>국립중앙의료원</span></li>
+
+        </ul>
+
+
+    </div>
+
+
+ 
+
+
+
+
+
+
+
+    <script  src="dom_manipulate3.js"></script>
+</body>
+</html>

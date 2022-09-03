@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정부</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 70%;
+            float: left;
+            border: 1px solid gray;
+        }
+
+        div#addInfo {
+            
+            position: sticky;
+            top: 0;
+            width: 30%;
+            float: right;
+            border: 1px solid gray;
+            height: 300px;
+
+        }
+        h3  {
+           
+            text-align: center;
+            background-color: black;
+            color: white;
+        }
+        /* #sido{
+           margin-left: 6px;
+            
+        } */
+        /* #input{
+          margin-left: 30px;
+           
+        } */
+        #span{
+           margin-left: 30px;
+        }
+        #stic{
+            height: 8000px;
+            
+        }
+        #tt{
+            margin-left: 30px;
+
+        }
+        /* .stic2{
+            margin-left: 1000px;
+            width: 30%;
+            height: 150px;
+            float :none;
+            border: 1ch solid gray;
+            position: sticky;
+            top: 0;
+            padding-left: 100px;
+        }  */
+        #set{
+            height: 50px;
+            margin-top: 1%;
+            border: 1px solid gray;
+        }
+        #tr_main{
+            position: sticky;
+            top: 0;
+            background-color: black;
+            color: white;
+        }
+        .tag01{
+            margin-top:     1%;
+            margin-bottom: 1px;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>예방접종</h3>
+    <div id="stic">
+       
+   
+    <br> <br>
+    <table border="1">
+        <thead>
+            <tr id="tr_main">
+                <th>시설아이디</th>
+                <th>센터명</th>
+                <th>지역</th>
+                <th>연락처</th>
+            </tr>
+        </thead>
+        <tbody id="list">
+
+        </tbody>
+        <div id="addInfo">
+            
+
+            <p class="tag01">조회</p>
+                <p id="set">
+                <label id="tt" for="input">조회지역</label>
+                <input id="input" type="text">
+                <button id="searchBtn">조회</button><br>
+                <label   id="label" for="">
+                    <span id="span">시/도 리스트</span>
+                    <select id="sido">
+                        <option>선택</option>
+                    </select>
+                </label>
+            </p>
+            <p class="tag01">상세조회</p>
+               
+         
+
+
+        </div>
+
+    </div>
+    </table>
+
+
+    <script>
+        //조회 버튼 이벤트
+        document.getElementById('searchBtn').addEventListener('click', searchCenterF)
+        //리스트선택
+        document.getElementById('sido').addEventListener('change', searchCenterF)
+        //마우스오버
+
+        // document.getElementById('list')
+
+
+
+        let gdata;
+
+        // let req_url =
+        // `https://api.odcloud.kr/api/15077586/v1/centers?page=1&perPage=234&returnType=json&serviceKey=voGPVlGq%2FPWNPKN2Ge%2BkDUcYrBilmXVkbZfL12lGcpxDk1gh2Yg8HcJytOHBvxlecW1bWubsANIXhcRYWIlvbw%3D%3D`;
+        // console.log(req_url)
+        let xhtp = new XMLHttpRequest();
+        xhtp.open('get', 'data_url.json');
+        xhtp.send();
+        xhtp.onload = pageLoadCall;
+        ///////////////////////////////////////////////
+
+
+
+
+
+        function pageLoadCall() {
+
+            let result = JSON.parse(this.responseText);
+            // console.log(result);
+
+            let tbody = document.getElementById('list')
+
+
+            let data = result.data;
+
+            gdata = data
+
+            let sidoData = []
+
+            data.forEach(element => {
+
+                tbody.append(makeTr(element))
+
+                //시도구분
+                if (sidoData.indexOf(element.sido) == -1) {
+                    sidoData.push(element.sido);
+                }
+
+
+            });
+            // console.log(sidoData)
+            //시도리스트
+            let sel = document.getElementById('sido')
+            sidoData.forEach(sido => {
+                let opt = document.createElement('option')
+                opt.textContent = sido;
+                opt.value = sido;
+                sel.append(opt)
+
+
+            })
+            // console.log( document.querySelectorAll('#list > tr'))
+
+
+        }
+        //출력
+        function makeTr(center) {
+
+            let dataN;
+            let tr = document.createElement('tr');
+            let infos = ['id', 'centerName', 'sido', 'phoneNumber'];
+
+            infos.forEach(info => {
+                let td = document.createElement('td')
+                let text = document.createTextNode(center[info])
+                tr.setAttribute('id', center['id'])
+                td.append(text)
+                tr.append(td)
+                tr.addEventListener('mouseover', detailF)
+                
+            })
+            tr.addEventListener('mouseout', () => {
+                document.getElementById('ulname').remove();
+            })
+            return tr;
+        }
+        //검색함수
+        function searchCenterF(e) {
+            // console.log(e.target)
+            let sido;
+
+            if (e.target.nodeName == 'BUTTON') {
+                sido = document.getElementById('input').value
+
+            } else if (e.target.nodeName == 'SELECT') {
+                sido = e.target.value;
+            }
+
+
+            //   sido2 = document.getElementById('input').value;
+            let tbody = document.getElementById('list')
+
+            document.querySelectorAll('#list > tr').forEach(tr => tr.remove());
+
+            gdata.forEach(center => {
+                if (center.sido.startsWith(sido)) {
+                    tbody.append(makeTr(center))
+                }
+
+            })
+
+
+        }
+        //////ul만들기
+
+        function makeul(center) {
+
+            let ul = document.createElement('ul');
+            ul.setAttribute('id','ulname')
+
+            // console.log(center['org'])
+
+            if (center['org'] == "") {
+                let li = document.createElement('li');
+                let span = document.createElement('span');
+                text = document.createTextNode('org : ' + '없음')
+
+                span.append(text)
+                li.append(span)
+
+                ul.append(li)
+            } else {
+                let li = document.createElement('li');
+                let span = document.createElement('span');
+                text = document.createTextNode('org : ' + center['org'])
+
+                span.append(text)
+                li.append(span)
+
+                ul.append(li)
+            }
+
+
+
+            let infos = ['lat', 'lng'];
+            infos.forEach(info => {
+                let li = document.createElement('li');
+                let span = document.createElement('span');
+                let text;
+
+                text = document.createTextNode(info + " : " + center[info])
+
+                span.append(text)
+                li.append(span)
+
+                ul.append(li)
+            })
+            return ul;
+        }
+
+        function detailF() {
+            // console.log(this.children[0])
+            // console.log( document.getElementById('list').children[2])
+            // console.log(gdata.    
+            // document.getElementById('test01').innerText=gdata['sido']
+            // document.write(aa)
+            // let tr = document.querySelectorAll('tr')
+            // console.log(tr)
+
+            gdata.forEach((element, idx) => {
+                // console.log(this.children[0])
+                // console.log(tr[idx].firstChild.textContent)
+
+                if (this.children[0].textContent == element.id) {
+                    // console.log(5)
+                    // console.log(a)
+                    addInfo.append(makeul(element))
+                }
+
+
+
+                // 시도구분
+                // if (sidoData.indexOf(element.sido) == -1) {
+                //     sidoData.push(element.sido);
+                // }
+
+
+            });
+
+
+        }
+    </script>
+</body>
+
+</html>

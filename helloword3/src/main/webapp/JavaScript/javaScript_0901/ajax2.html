@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="show">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>아이디</th>
+                    <th>이름</th>
+                    <th>이메일</th>
+                </tr>
+            </thead>
+            <tbody  id="list"></tbody>
+        </table>
+    </div>
+
+    <script>
+        // 서버상에 있는 html, jsp, servlet.
+        let xhtp = new XMLHttpRequest();
+        // open(방식, url)
+        xhtp.open('get', '../MOCK_DATA.json');
+        xhtp.send(); // 서버에 요청.
+        xhtp.onload = function() {
+            // let data = xhtp.response;
+            let datas = JSON.parse(xhtp.response);
+            console.log(datas);
+            
+            let list = document.getElementById('list');
+
+            // 서버 json파일 -> JSON.parse() -> 페이지 출력.
+            datas.forEach(data => {
+	            let tr = document.createElement('tr');
+	            
+	            let td1 = document.createElement('td');
+	            let txd1 = document.createTextNode(data.id);
+	            td1.appendChild(txd1);
+	
+	            let td2 = document.createElement('td');
+	            let txd2 = document.createTextNode(data.first_name);
+	            td2.appendChild(txd2);
+	            
+	            let td3 = document.createElement('td');
+	            let txd3 = document.createTextNode(data.email);
+	            td3.appendChild(txd3);
+	            
+	            tr.append(td1, td2, td3);
+	            
+	            list.append(tr);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기본기</title>
+    <style>
+       /* h1{border: 1px solid red;} */
+        script>ul{
+            width: 50px;
+                }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: 6em;">안녕 세상아!</h1>
+    <script>
+        let person = {
+            name:"김상영",
+            age:34, 
+            show : function(){
+                "이름은 "+this.name+" 나이는 "+this.age+"입니다."
+            }};
+            person.show();
+    
+            document.write('<h1>안녕 세상아</h1><br>');
+
+            // window.alert('경고 구문입니다.')
+
+            let rhkdlf = ['자몽','자두','천해향','Test']
+            let str = '<h1>나의 과일</h1><ul style="border: solid red; width : 400px;"><li>자몽</li><li>자두</li><li>천해향</li></ul>'
+            document.write(str)
+           
+            let str2 = '<ul>'
+           
+          for(let fee of rhkdlf){
+                str2 += '<li>'+fee+'</li>';
+            }
+            str2+='</ul>';
+            document.write(str2);
+            //w조금있따가 체크하기//
+
+
+let member = {
+    userId : 'kim',
+    userName: '김상영',
+    point : 350
+}
+    member.userId
+
+    //for in과 for of 차이 찾기//
+    for (let prop in member){
+        console.log(prop)
+    }
+    document.write(member['point'])
+
+    </script>
+    di
+</body>
+</html>
